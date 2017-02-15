@@ -1,0 +1,207 @@
+@charset "UTF-8";
+
+
+
+.frame {
+	width: 671px;	
+}
+
+.title {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size:28px;
+	color: #FFFFFF;
+	text-align: left;
+	padding: 10px;
+}
+
+.subtitle {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size:20px;
+	color: #FFFFFF;
+	text-align: left;
+	padding: 10px;
+}
+
+.estimatetitle {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-size: 28px;
+	color: #000000;
+	text-align: left;
+	padding: 10px;
+}
+	
+	
+.stationnametablered {
+	background: #fa2d27;
+	margin: 0 0 1px 0;
+	float: left;
+	width: 450px;
+	height: 40px;		
+}
+
+
+.stationnametableblue {
+	background: #2f5da6;
+	margin: 0 0 1px 0;
+	float: left;
+	width: 450px;
+	height: 40px;		
+}
+	
+.stationnametableorange {
+	background: #fd8a03;
+	margin: 0 0 1px 0;
+	float: left;
+	width: 450px;
+	height: 40px;		
+}
+
+.stationnametablegreen {
+	background: #008150;
+	margin: 0 0 1px 0;
+	float: left;
+	width: 450px;
+	height: 40px;		
+}
+
+
+.stationnametableblank {
+	background: #4F4F4F;
+	margin: 0 0 1px 0;
+	float: left;
+	width: 450px;
+	height: 40px;		
+}
+	
+		
+	
+	
+.stationnametext
+{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	font-size:30px;
+	color: #FFFFFF;
+	text-align: left;
+	padding: 10px;	
+}
+	
+.timetable{
+	background: #353535;
+	margin: 0 0 1px 1px;
+	float: left;
+	width: 220px;
+	height: 40px;		
+}
+
+.timetext1{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size:20px;
+	color: #FFFFFF;
+	text-align: left;
+	padding-left: 10px;
+	padding-top: 0px;
+}
+
+.timetext2{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size:10px;
+	color: #FFFFFF;
+	text-align: left;
+	padding-left: 10px;	
+	padding-top:0px;	
+	
+	
+	
+}
+
+.directionbar {
+	background-color: #353535;
+	float: left;
+	width: 671px;
+	height: 20px;
+	margin-bottom: 1px;
+}
+
+.directiontext {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size: 18px;
+	color: #FFFFFF;
+	text-align: left;
+	text-indent: 10px	
+	
+}
+
+.arrivalbarleft {
+	background: #4F4F4F;
+	margin: 0 0 1px 0;
+	float: left;
+	width: 450px;
+	height: 56px;
+	
+}
+
+
+.arrivalbarright {
+	background: #4F4F4F;
+	margin: 0 0 1px 0;
+	float: left;
+	width: 221px;
+	height: 56px;
+}
+
+.arrivaltext {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size:28px;
+	color: #FFFFFF;
+	text-align: left;
+	padding-left: 10px;
+}
+
+
+.minutestext{font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size:28px;
+	color: #FFFFFF;
+	text-align: right;
+	padding-right: 10px;
+	width: 210px;	
+}
+
+
+
+
+.subtext {
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size:12px;
+	text-decoration: underline;
+	color: #FFFFFF;
+	text-align: left;
+	padding-left: 10px;	
+	padding-top:3px;
+}
+
+
+.selectline{
+	font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	font-weight: normal;
+	font-size:16px;
+	text-align: left;
+	text-indent: 10px;
+}
+	
+a {
+    color: #FFFFFF;
+    text-decoration: none;
+
+}
+
+#station{
+	width:150px;
+}
