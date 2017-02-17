@@ -58,3 +58,11 @@ li a {
 	content: " ";
 	padding-bottom: 350px;
 }
+
+
+#image-map {
+  width: 750px;
+  height: 750px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}

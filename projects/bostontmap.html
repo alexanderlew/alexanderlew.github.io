@@ -8,6 +8,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/leaflet.css">
+    
+    
 </head>
 <body>
 
@@ -36,9 +39,10 @@ to inform the user of the variety of modes within the system, such as on the Gre
 In addition to the subway map, I also redesigned the MBTA bus map.
 </p>
   
+  <div id="image-map">
+  </div>
   
-  </p>
- 	
+  
   
   </div>
 
@@ -48,5 +52,41 @@ In addition to the subway map, I also redesigned the MBTA bus map.
 
 
 </div>
+
+
+
+<script src="../js/leaflet.js"></script>
+
+ <script>
+    var map = L.map('image-map', {
+  minZoom: .5,
+  maxZoom: 4,
+  center: [0, 0],
+  zoom: 1.5,
+  crs: L.CRS.Simple
+});
+
+// dimensions of the image
+var w = 3355,
+    h = 3355,
+    url = '../images/Boston_T_Redesign.png';
+
+// calculate the edges of the image, in coordinate space
+var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+var bounds = new L.LatLngBounds(southWest, northEast);
+
+// add the image overlay, 
+// so that it covers the entire map
+L.imageOverlay(url, bounds).addTo(map);
+
+// tell leaflet that the map is exactly as big as the image
+map.setMaxBounds(bounds);
+    
+    
+    
+    </script>
 </body>
 </html>
+
+
