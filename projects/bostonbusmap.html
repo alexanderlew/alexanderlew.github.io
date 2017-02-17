@@ -8,6 +8,9 @@
 	<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
 	<link rel="stylesheet" href="../css/bootstrap.min.css">
 	<link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/leaflet.css">
+    
+    
 </head>
 <body>
 
@@ -35,14 +38,45 @@ This new MBTA bus map seeks to tackle these frustrations. Design considerations 
 <p>
 Redesigning the MBTA bus map revealed several service inefficiencies within the MBTA system and the need for a major comprehensive overhaul. A complex system requires a complex map. For nearly every MBTA bus line, a “variant” or branch exists. Many of these variants serve only the occasional rider, but increase passenger confusion and cost the system valuable time that could be used for more productive services. The MBTA also does not have a strong database of where their stops are located. Stop locations were identified primarily through their Google Transit feed, but had to be manually confirmed with Google Streetview. In fact, the MBTA recently completed a bus stop audit.
  	</p>
+    
+   <div id="image-map">
+  </div>
   
   </div>
-
-
+</div>
 </div>
 
 
+<script src="../js/leaflet.js"></script>
 
-</div>
+ <script>
+    var map = L.map('image-map', {
+  minZoom: 1,
+  maxZoom: 5,
+  center: [0, 0],
+  zoom: 1,
+  crs: L.CRS.Simple
+});
+
+// dimensions of the image
+var w = 12000,
+    h = 9000,
+    url = '../images/MBTA_Bus_Map_Redesign.png';
+
+// calculate the edges of the image, in coordinate space
+var southWest = map.unproject([0, h], map.getMaxZoom()-1);
+var northEast = map.unproject([w, 0], map.getMaxZoom()-1);
+var bounds = new L.LatLngBounds(southWest, northEast);
+
+// add the image overlay, 
+// so that it covers the entire map
+L.imageOverlay(url, bounds).addTo(map);
+
+// tell leaflet that the map is exactly as big as the image
+map.setMaxBounds(bounds);
+    
+    
+    
+    </script>
 </body>
 </html>
