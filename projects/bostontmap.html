@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<div class="container">
+<div class="container-fluid">
 
 <!-- Navigation Bar and Header ! START-->
 <h2>Alexander Lew | Transportation Planner</h2>
@@ -38,13 +38,9 @@ to inform the user of the variety of modes within the system, such as on the Gre
 <p>
 In addition to the subway map, I also redesigned the MBTA bus map.
 </p>
-  
   <div id="image-map">
   </div>
-  
-  
-  
-  </div>
+ </div>
 
 
 </div>
@@ -59,10 +55,10 @@ In addition to the subway map, I also redesigned the MBTA bus map.
 
  <script>
     var map = L.map('image-map', {
-  minZoom: .5,
+  minZoom: 1,
   maxZoom: 4,
   center: [0, 0],
-  zoom: 1.5,
+  zoom: 1,
   crs: L.CRS.Simple
 });
 
