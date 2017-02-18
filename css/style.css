@@ -74,3 +74,15 @@ li a {
   border: 1px solid #ccc;
   margin-bottom: 10px;
 }
+
+
+.tales {
+  width: 100%;
+}
+.carousel-inner{
+  height:350px !important;
+}
+
+.carousel-inner > .item > img, .carousel-inner > .item > a > img {
+    width: 100%;
+}
