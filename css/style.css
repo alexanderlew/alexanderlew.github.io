@@ -22,6 +22,11 @@ h4{
 	font-family: 'Roboto', sans-serif;
 }
 
+h5{
+
+	font-family: 'Roboto', sans-serif;
+}
+
 
 p{
 	font-family: 'Roboto', sans-serif;	
@@ -86,3 +91,5 @@ li a {
 .carousel-inner > .item > img, .carousel-inner > .item > a > img {
     width: 100%;
 }
+
+
