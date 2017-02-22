@@ -52,15 +52,15 @@ Redesigning the MBTA bus map revealed several service inefficiencies within the 
  <script>
     var map = L.map('image-map', {
   minZoom: 1,
-  maxZoom: 5,
+  maxZoom: 4,
   center: [-160, 250],
   zoom: 2,
   crs: L.CRS.Simple
 });
 
 // dimensions of the image
-var w = 12000,
-    h = 9000,
+var w = 4000,
+    h = 3000,
     url = '../images/MBTA_Bus_Map_Redesign.png';
 
 // calculate the edges of the image, in coordinate space
