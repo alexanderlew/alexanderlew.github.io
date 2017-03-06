@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>alexander lew | transportation planner – Hubway</title>
+    
+    <!-- Load Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+<link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+     <link rel="stylesheet" href="css/map.css">
+</head>
+<body>
+
+  <div class="container">
+  
+  <!-- Navigation Bar and Header ! START-->
+<h2>Alexander Lew | Transportation Planner</h2>
+<BR> <BR>
+<ul>
+  <li><a href="../../index.html">Home</a></li>
+  <li><a href="../../about.html">About</a></li>
+</ul>
+<BR> <BR>
+<!-- Navigation Bar and Header ! END-->
+
+    <div class="row">
+
+      <div class="col-md-8">
+        
+        <!-- Headline -->
+        <h4>Hubway - Bike Sharing in Boston 
+          <span class="divider">|</span>
+          <span class="sub-headline">
+            <span id="station-count"></span> open stations
+          </span>
+          
+        </h4>
+        </div>
+        <div class = "col-md-8">
+      </p>
+      This visualization is based on a homework project for <a href="http://www.cs171.org/2016/index.html">CS 171 Visualization</a>. This is a system status map for Boston's <a href="https://www.thehubway.com/">Hubway bike share</a> system.  The circle size indicates the full capacity of the station, while the slices of the circle show the number of docks and bikes available. Tools used in this visualization were <a href="https://d3js.org/">D3</a> (pie charts and tool tips), <a href="http://leafletjs.com/">Leaflet</a> (maps), and the <a href="https://www.thehubway.com/system-data">Hubway real time data</a> (data).
+      </p>
+
+    </div>
+      <div class = "col-md-8">
+
+        <!-- Visualization placeholders -->
+        <div id="station-map"></div>
+      
+      </div>
+    
+      
+    </div>
+
+  </div>
+
+  <!-- Load JS libraries -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/d3.min.js"></script>
+  <script src="js/d3.tip.js"></script>
+  <script src="js/leaflet-src.js"></script>
+
+
+  <!-- Visualization objects -->
+  <script src="js/stationMap.js"></script>
+
+</body>
+</html>
