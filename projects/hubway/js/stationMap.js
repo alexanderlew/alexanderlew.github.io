@@ -34,7 +34,10 @@ function loadData() {
 	  return d.st === 1;  
 	});
 	
-  
+    closedStations = allData.filter(function(d){
+       return d.st !== 1; 
+    });
+    
 	document.getElementById("station-count").innerHTML = openStations.length;
 	 initVis();
 	 });
@@ -63,7 +66,7 @@ function initVis() {
     var svg = d3.select("#station-map").select("svg"),
     g = svg.append("g");
 
-    //tool tip
+    //tool tip open stations
     var tip = d3.tip()
 	.attr('class', 'd3-tip')
 	.attr()
@@ -76,8 +79,32 @@ function initVis() {
 	        return "<strong>" + d.data.sta + "</strong><BR><BR> Bikes Available: " + d.data.other + "<BR><strong>Docks Available: "+d.data.key + "</strong>";
 	    }
 	});
+	
+	
+	 var tip_closed = d3.tip()
+	.attr('class', 'd3-tip')
+	.attr()
+	.offset([-10, 0])
+	.html(function(d) {
+	    return "<strong>" + d.s + "</strong><BR><BR> Station temporarily closed";
+	});
+	
+	
     
     svg.call(tip);
+    svg.call(tip_closed);
+    
+    //closed stations.
+    var closed = g.selectAll('circle')
+      .data(closedStations)
+      .enter()
+      .append('circle')
+      .attr('r', "6")
+      .style("fill", "#000000")
+      .style("opacity", 0.5)
+    .on("mouseover", tip_closed.show)
+    .on("mouseout", tip_closed.hide);;
+    
     
     //pie chart
     var pie = d3.layout.pie()
@@ -110,6 +137,7 @@ function initVis() {
     .enter()
     .append("path")
     .attr("d", function(d, i){
+        console.log(d);
         return d3.svg.arc().innerRadius(0).outerRadius(d.data.tot).call(d, d);
     })
     .style("fill", function(d, i){
@@ -132,6 +160,16 @@ function initVis() {
       			map.latLngToLayerPoint(d.latLng).y +")";
             }
       )
+      
+    closed.attr("transform",
+        function(d){
+          
+          return "translate("+ 
+      			map.latLngToLayerPoint(d.latLng).x +","+ 
+      			map.latLngToLayerPoint(d.latLng).y +")";
+            }
+      )      
+      
     }
 
 }
