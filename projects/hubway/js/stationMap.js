@@ -188,5 +188,5 @@ function initVis() {
 
 function current_time(){
     var date = moment().tz('America/New_York').format('MM-DD-YYYY HH:mm z');
-   document.getElementById("time").innerHTML = "Page updated at: " + date;
+   document.getElementById("time").innerHTML = "Hubway data loaded at: " + date;
 }
