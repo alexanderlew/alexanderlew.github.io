@@ -11,7 +11,7 @@ var color = d3.scale.ordinal()
 
 function loadData() {
 
-// Hubway XML station feed
+// Hubway json station feed
 	var url = 'https://secure.thehubway.com/data/stations.json';
 
 	$.getJSON(url).done(function(jsonData){
@@ -24,8 +24,9 @@ function loadData() {
 		data.la = +data.la;
 		data.lo = +data.lo;
 		data.ba = +data.ba;
-		data.da = +data.da;	
-		data.total = data.ba + data.da
+		data.da = +data.da;
+		data.lu = +data.lu;
+		data.total = data.ba + data.da;
 		data.latLng = [+data.la, +data.lo];
 	});
 	
@@ -37,6 +38,11 @@ function loadData() {
     closedStations = allData.filter(function(d){
        return d.st !== 1; 
     });
+    
+    // Load time zone for time formattings:
+    moment.tz.add([
+    'America/New_York|EST EDT EWT EPT|50 40 40 40|01010101010101010101010101010101010101010101010102301010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010101010|-261t0 1nX0 11B0 1nX0 11B0 1qL0 1a10 11z0 1qN0 WL0 1qN0 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1qN0 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1qN0 WL0 1qN0 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1qN0 WL0 1qN0 11z0 1o10 11z0 RB0 8x40 iv0 1o10 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1qN0 WL0 1qN0 11z0 1o10 11z0 1o10 11z0 1o10 11z0 1o10 1fz0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1fz0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1fz0 1a10 1fz0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1fz0 1cN0 1cL0 1cN0 1cL0 s10 1Vz0 LB0 1BX0 1cN0 1fz0 1a10 1fz0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 1cN0 1fz0 1a10 1fz0 1cN0 1cL0 1cN0 1cL0 1cN0 1cL0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 14p0 1lb0 14p0 1lb0 14p0 1nX0 11B0 1nX0 11B0 1nX0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Rd0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0 Op0 1zb0|21e6'
+]);
     
 	document.getElementById("station-count").innerHTML = openStations.length;
 	 initVis();
@@ -72,11 +78,14 @@ function initVis() {
 	.attr()
 	.offset([-10, 0])
 	.html(function(d) {
+        var last_update = moment(d.data.update).tz('America/New_York').format('MM-DD-YYYY HH:mm z');
+	    
 	    if(d.data.item==="Bikes"){
-	       return "<strong>" + d.data.sta + "<BR><BR> Bikes Available: " + d.data.key + "</strong><BR>Docks Available: "+d.data.other;
+
+	       return "<strong>" + d.data.sta + "<BR><BR> Bikes Available: " + d.data.key + "</strong><BR>Docks Available: "+d.data.other + "<BR> <BR><font size='1'>Last update from station: " + last_update + "</font>";
 	    }
 	    else if(d.data.item === "Docks"){
-	        return "<strong>" + d.data.sta + "</strong><BR><BR> Bikes Available: " + d.data.other + "<BR><strong>Docks Available: "+d.data.key + "</strong>";
+	        return "<strong>" + d.data.sta + "</strong><BR><BR> Bikes Available: " + d.data.other + "<BR><strong>Docks Available: "+d.data.key + "</strong>" + "<BR> <BR><font size='1'>Last update from station: " + last_update + "</font>";
 	    }
 	});
 	
@@ -103,7 +112,7 @@ function initVis() {
       .style("fill", "#000000")
       .style("opacity", 0.5)
     .on("mouseover", tip_closed.show)
-    .on("mouseout", tip_closed.hide);;
+    .on("mouseout", tip_closed.hide);
     
     
     //pie chart
@@ -125,19 +134,20 @@ function initVis() {
             tot: d.total,
             item: "Bikes",
             other: d.da,
-            sta: d.s
+            sta: d.s,
+            update: d.lu
         }, {
             key: d.da,
             tot: d.total,
             item: "Docks",
             other: d.ba,
-            sta: d.s
+            sta: d.s,
+            update: d.lu
         }]);
     })
     .enter()
     .append("path")
     .attr("d", function(d, i){
-        console.log(d);
         return d3.svg.arc().innerRadius(0).outerRadius(d.data.tot).call(d, d);
     })
     .style("fill", function(d, i){
@@ -150,6 +160,7 @@ function initVis() {
     
     map.on('viewreset', update);
     update();
+    current_time();
     
   function update() {
       pies.attr("transform",
@@ -159,7 +170,7 @@ function initVis() {
       			map.latLngToLayerPoint(d.latLng).x +","+ 
       			map.latLngToLayerPoint(d.latLng).y +")";
             }
-      )
+      );
       
     closed.attr("transform",
         function(d){
@@ -168,8 +179,14 @@ function initVis() {
       			map.latLngToLayerPoint(d.latLng).x +","+ 
       			map.latLngToLayerPoint(d.latLng).y +")";
             }
-      )      
+      );      
       
     }
 
+}
+
+
+function current_time(){
+    var date = moment().tz('America/New_York').format('MM-DD-YYYY HH:mm z');
+   document.getElementById("time").innerHTML = "Page updated at: " + date;
 }
