@@ -7,6 +7,9 @@ loadData();
 var color = d3.scale.ordinal()
     .range(["#4a6887", "#E64347"]);
 
+var radius = d3.scale.sqrt()
+    .domain([0, 50])
+    .range([0, 26]);
 
 
 function loadData() {
@@ -148,7 +151,7 @@ function initVis() {
     .enter()
     .append("path")
     .attr("d", function(d, i){
-        return d3.svg.arc().innerRadius(0).outerRadius(d.data.tot).call(d, d);
+        return d3.svg.arc().innerRadius(0).outerRadius(radius(d.data.tot)).call(d, d);
     })
     .style("fill", function(d, i){
         return color(i);
@@ -188,5 +191,5 @@ function initVis() {
 
 function current_time(){
     var date = moment().tz('America/New_York').format('MM-DD-YYYY HH:mm z');
-   document.getElementById("time").innerHTML = "Hubway data loaded at: " + date;
+   document.getElementById("time").innerHTML = "Page updated at: " + date;
 }
