@@ -42,6 +42,13 @@ var styles= [
 			{hue: '#00ffe6'} 
 			]
 		},{
+			featureType: "poi",
+			elementType: "labels",
+			stylers: [
+			{visibility: 'off'} 
+			]
+		}
+		,{
 			featureType: "road",
 			
 			stylers: [
@@ -79,7 +86,7 @@ function initMap() {
 }
 
 function addTrains(Line){
-    var url = 'https://realtime.mbta.com/developer/api/v2/vehiclesbyroute?api_key=wX9NwuHnZU2ToO7GmGR9uw&route=' + Line + '&format=JSON';
+    var url = 'http://realtime.mbta.com/developer/api/v2/vehiclesbyroute?api_key=wX9NwuHnZU2ToO7GmGR9uw&route=' + Line + '&format=JSON';
     
 	//retrieve JSON of locations
 	$.getJSON(url).done(function(data, textStatus, jqHXR){
