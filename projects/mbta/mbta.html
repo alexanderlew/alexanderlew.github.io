@@ -1,0 +1,75 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    	<title>alexander lew | transportation planner – MBTA</title>
+    
+    <!-- Load Google Font -->
+<link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet"> 
+<link rel="stylesheet" href="css/leaflet.css">
+    <link rel="stylesheet" href="../../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../css/style.css">
+     <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <div class="container">
+  
+  <!-- Navigation Bar and Header ! START-->
+<h2>Alexander Lew | Transportation Planner</h2>
+<BR> <BR>
+<ul>
+  <li><a href="../../index.html">Home</a></li>
+  <li><a href="../../about.html">About</a></li>
+</ul>
+<BR> <BR>
+<!-- Navigation Bar and Header ! END-->
+
+    <div class="row">
+
+      <div class="col-md-8">
+        
+        <!-- Headline -->
+        <h4>MBTA Trains in Operation
+          
+        </h4>
+        </div>
+        <div class = "col-md-8">
+      </p>
+      This map was a project for <a href="https://cs50.harvard.edu/">CS 50: Introduction to Computer Science</a> and one of my first projects in Javascript.
+      The map uses the <a href="http://realtime.mbta.com/">MBTA real time API</a> to show the geographic location of each train in operation as well as 
+      the train's destination. The map updates the train's location every 15 seconds. 
+      </p>
+
+    </div>
+      <div class = "col-md-8">
+
+        <!-- Visualization placeholders -->
+        <div id="station-map"></div>
+      	<div id="time"></div>
+      </div>
+    
+      
+    </div>
+
+  </div>
+
+   <!-- Load JS libraries -->
+  <script src="js/jquery.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/moment.js"></script>
+  <script src="js/moment-timezone.js"></script>
+
+
+  <!-- Visualization objects -->
+  <script src="js/mapscripts.js"></script>
+  
+	<script
+    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD9rocthDFPXgW4wTnr4DRe3lrPjAO7qRQ&callback=initMap">
+    </script>
+    <script src="js/markerwithlabel_packed.js"></script>
+
+</body>
+</html>
