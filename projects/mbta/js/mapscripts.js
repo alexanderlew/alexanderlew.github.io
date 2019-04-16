@@ -101,17 +101,10 @@ function addTrains(Line){
 			var long = trip.attributes.longitude;
 			var bearing = Number(trip.attributes.bearing);
 
-			console.log(lat);
-			console.log(long);
-			console.log(bearing);
-
 			//find headsign:
 			var destObj = included.filter(function(item){
 				return item.id === trip.relationships.trip.data.id;
 			});
-
-			console.log(trip.id);
-			console.log(destObj);
 
 			var dest = destObj[0].attributes.headsign;
 				console.log(dest);
