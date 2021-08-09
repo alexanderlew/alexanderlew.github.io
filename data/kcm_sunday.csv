@@ -1,3 +1,4 @@
+service_id,route_id,trip_id,block_id,sch_arr_time,stop_name,stop_id,stop_seq,direction_name
 Sunday   , S522,     658,522 - 13,16:20   ,WOODINVILLE P & R SB,8530,          1,South
 Sunday   , S522,     658,522 - 13,16:31   ,UW/CCC BTHL NORTH LOOP,9419,          2,South
 Sunday   , S522,     658,522 - 13,16:35   ,BOTHELL P & R,9209,          3,South
