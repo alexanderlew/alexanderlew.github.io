@@ -1,3 +1,4 @@
+service_id,route_id,trip_id,block_id,sch_arr_time,stop_name,stop_id,stop_seq,direction_name
 Saturday ,,   21314,522 - 14,18:21   ,OSWEGO PL NE & NE 65 ST,1280,          1,
 Saturday ,,   21314,522 - 14,18:22   ,I-5/NE RAVENNA BLVD S/B,5680,          2,
 Saturday ,,   22799,545 -  6,20:07   ,AIRPORT WAY S & S ROYAL BROUGHAM WAY,5003,          1,

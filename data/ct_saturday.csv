@@ -1,3 +1,4 @@
+service_id,route_id,trip_id,block_id,sch_arr_time,stop_name,stop_id,stop_seq,direction_name
 Saturday ,  512,   76560,      18,22:19   ,NORTHGATE TRANSIT CENTER,nortc,          1,North
 Saturday ,  512,   76560,      18,22:22   ,I-5 at 117th, Northgate,117i5,          2,North
 Saturday ,  512,   76560,      18,22:29   ,I-5 & NE 195th,195i5,          3,North

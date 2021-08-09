@@ -1,3 +1,4 @@
+service_id,route_id,trip_id,block_id,sch_arr_time,stop_name,stop_id,stop_seq,direction_name
 Weekday  ,  535,   39314,     193,14:18   ,Lynnwood Transit Center,lynntc,          1,South
 Weekday  ,  535,   39314,     193,14:24   ,Alderwood Mall Pkwy & 184th St SW,ald184,          2,South
 Weekday  ,  535,   39314,     193,14:33   ,Canyon Park Park & Ride,cpkpr,          3,South

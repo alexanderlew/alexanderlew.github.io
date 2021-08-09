@@ -1,3 +1,4 @@
+service_id,route_id,trip_id,block_id,sch_arr_time,stop_name,stop_id,stop_seq,direction_name
 Sunday   ,  512,   85600,       2, 7:59   ,NORTHGATE TRANSIT CENTER,nortc,          1,North
 Sunday   ,  512,   85600,       2, 8:02   ,I-5 at 117th, Northgate,117i5,          2,North
 Sunday   ,  512,   85600,       2, 8:08   ,I-5 & NE 195th,195i5,          3,North

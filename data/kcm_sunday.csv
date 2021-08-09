@@ -1,3 +1,4 @@
+service_id,route_id,trip_id,block_id,sch_arr_time,stop_name,stop_id,stop_seq,direction_name
 Weekday  ; S522;  136094;522 - 12;13:26   ;;5492;          1;North
 Weekday  ; S522;  136094;522 - 12;13:42   ;LAKE CITY WY NE & NE 130 ST;3607;          2;North
 Weekday  ; S522;  136094;522 - 12;13:45   ;LAKE CITY WY NE & NE 145 ST;3628;          3;North
