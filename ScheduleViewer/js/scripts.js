@@ -24,6 +24,17 @@ var stopNameExceptions = [
 ];
 
 
+var tripSortExceptions = [
+{route_id: "532", direction_name: "South", stop_id: "blvtc"},
+{route_id: "535", direction_name: "South", stop_id: "blvtc"}
+];
+
+//cheap work around for better sort of stops. 
+var stopSeqExceptions = [
+{route_id: "535", direction_name: "South", stop_seq_adjust: 10}
+];
+
+
 var revTripsData = [];
 
 
@@ -116,7 +127,7 @@ function cleanData(data){
 				data[i].service_id = data[i].service_id.replace(/\s+/g, ' ').trim();
 				data[i].route_id = data[i].route_id.replace(/\s+/g, ' ').trim();
 				data[i].sch_arr_time = data[i].sch_arr_time.replace(/\s+/g, ' ').trim();
-				data[i].stop_seq = +data[i].stop_seq.replace(/\s+/g, ' ').trim(); //converts to number.
+				data[i].stop_seq = +data[i].stop_seq.replace(/\s+/g, ' ').trim(); //converts to number
 				data[i].trip_id = data[i].trip_id.replace(/\s+/g, ' ').trim();
 				data[i].sch_arr_time_sort = +data[i].sch_arr_time.replace(":","");
 				
@@ -128,6 +139,13 @@ function cleanData(data){
 				if(stopExceptions.length > 0){
 					data[i].stop_name = stopExceptions[0].stop_name;			
 				}
+	
+				var adjustStopSeq = stopSeqExceptions.filter(function(d){return data[i].route_id === d.route_id && data[i].direction_name === d.direction_name;});
+				
+				if(adjustStopSeq.length >0){
+					data[i].stop_seq += adjustStopSeq[0].stop_seq_adjust;	
+				}
+				
 				//add fields: 24h time
 				var sch_arr_time_cleaned;
 				
@@ -270,7 +288,11 @@ function displayTable(routes, service_id, directionName, data){
 		return d.direction_name === directionName;
 	});
 	
-	console.log(allTrips);
+	//TO DO: sort by stop
+	//check if tripSortExceptions exist.
+	
+	//if exists, sort by the stop for that particular direction.
+	
 	
 	for (var t = 0; t < allTrips.length; t++){
 		tableBody += '<td>' + allTrips[t].route_id + '</td>';
@@ -330,7 +352,32 @@ function getTripsByRoutes(routes, service_id, data){
 		return d.service_id === service_id;
 	});
 	
-	//loop through each stop time, pulling out unique trips.
+	//create array of all trips in stop time data. 
+	for (var i = 0; i < routeData.length; i++){
+		//check if trip already exists. 
+		if(trips.filter(function(d){ 
+			return d.trip_id === routeData[i].trip_id && d.route_id === routeData[i].route_id && d.service_id === routeData[i].service_id;}).length < 1){
+			
+			var obj = {}
+			
+			obj["trip_id"] = routeData[i].trip_id;
+			obj["route_id"] = routeData[i].route_id;
+			obj["service_id"] = routeData[i].service_id;
+			obj["direction_name"] = routeData[i].direction_name;
+			obj["stops"] = getStopsByTrip(routeData[i].trip_id,routeData[i].service_id,routeData);
+			
+				
+			obj["trip_start_time"] = obj["stops"][0]["sch_arr_time"];
+			obj["trip_start_time_24h"] = obj["stops"][0]["sch_arr_time_24h"];
+			obj["trip_start_sort"] = +obj["trip_start_time"].replace(":",""); //cheap workaround
+		
+			trips.push(obj);
+				
+		}
+	}
+	
+	
+/*	//loop through each stop time, pulling out unique trips.
 	for(var i = 0; i < routeData.length; i++){
 		//if trip does not exist then add it to the list.
 		if(trips.filter(function(d){return d.trip_id === routeData[i].trip_id;}).length < 1 && routeData[i].stop_seq < 2){
@@ -350,6 +397,7 @@ function getTripsByRoutes(routes, service_id, data){
 		}
 	
 	}
+	*/
 	
 	trips.sort(function(a,b){
 		if(a.direction_name < b.direction_name){
