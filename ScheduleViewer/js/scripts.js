@@ -364,12 +364,31 @@ function getTripsByRoutes(routes, service_id, data){
 			obj["route_id"] = routeData[i].route_id;
 			obj["service_id"] = routeData[i].service_id;
 			obj["direction_name"] = routeData[i].direction_name;
-			obj["stops"] = getStopsByTrip(routeData[i].trip_id,routeData[i].service_id,routeData);
+			
+			var stopTimes = getStopsByTrip(routeData[i].trip_id,routeData[i].service_id,routeData);
+			
+			obj["stops"] = stopTimes;
 			
 				
 			obj["trip_start_time"] = obj["stops"][0]["sch_arr_time"];
 			obj["trip_start_time_24h"] = obj["stops"][0]["sch_arr_time_24h"];
-			obj["trip_start_sort"] = +obj["trip_start_time"].replace(":",""); //cheap workaround
+			
+			var tripSortException = tripSortExceptions.filter(function(d){return routeData[i].route_id === d.route_id  &&  routeData[i].direction_name === d.direction_name;});
+			var tripSort;		
+			if (tripSortException.length > 0){
+				//filter through stops to find time.
+				var sortStop = stopTimes.filter(function(d){
+					return d.stop_id === tripSortException[0].stop_id;
+				});
+				
+				tripSort = sortStop[0].sch_arr_time_sort;
+				
+			}
+			else{
+				tripSort = +obj["trip_start_time"].replace(":","");
+			}
+			
+			obj["trip_start_sort"] = tripSort; 
 		
 			trips.push(obj);
 				
