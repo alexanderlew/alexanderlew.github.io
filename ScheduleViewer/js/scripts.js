@@ -12,17 +12,19 @@ configFiles = ['https://raw.githubusercontent.com/alexanderlew/alexanderlew.gith
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_saturday.csv',
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_sunday.csv'];
 
-var configIgnoreStops = [{stop_id: "195i5", stop_name: "I-5 & NE 195th"}];
-
-var stopNameExceptions = [
-{stop_id: "5495", stop_name: "Roosevelt Station Bay 4"},
-{stop_id: "5492", stop_name: "Roosevelt Station Bay 3"},
-{stop_id: "304", stop_name: "2 AV & YESLER"},
-{stop_id: "3096", stop_name: "SOUTH BELLEVUE P&R BAY 1"},
-{stop_id: "7335", stop_name: "SOUTH BELLEVUE P&R BAY 3"}
-
+var configIgnoreStops = [{stop_id: "195i5", stop_name: "I-5 & NE 195th"},
+{stop_id: "9stew", stop_name: "Stewart St & 9th Ave"},
+{stop_id: "hwll9", stop_name: "Howell St & 9th Ave"},
+{stop_id: "9209", stop_name: "BOTHELL P & R"},
+{stop_id: "9232", stop_name: "104 AVE NE & MAIN ST (BOTHELL)"},
+{stop_id: "3628", stop_name: "LAKE CITY WY NE & NE 145 ST"},
+{stop_id: "1280", stop_name: "OSWEGO PL NE & NE 65 ST"},
+{stop_id: "211", stop_name: "2 AV & SENECA ST"},
+{stop_id: "3919", stop_name: "MONTLAKE BLVD E & E SHELBY ST"}
 ];
 
+var stopNameExceptionsEndPoint = 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/stop_name_exceptions.csv';
+var stopNameExceptions;
 
 var tripSortExceptions = [
 {route_id: "532", direction_name: "South", stop_id: "blvtc"},
@@ -37,8 +39,8 @@ var stopSeqExceptions = [
 
 var revTripsData = [];
 
-
-loadData();
+//load exceptions first, then data
+loadStopNameExceptionsCSV(stopNameExceptionsEndPoint);
 
 
 
@@ -57,7 +59,7 @@ function loadData() {
 	function loadCSV() {
 	
 			d3.csv(configFiles[loop], function(data){
-				console.log(data);
+				
 				//clean up data: organize by route, direction, and trip.
 				
 				//filter out all deadheading trips 
@@ -76,16 +78,28 @@ function loadData() {
 				if(loop < lastLoop){
 					loadCSV();
 				} else {
-					console.log(revTripsData);
+					
 					loadDirectionMenu();	
 				}
 				
 			});	 
 	}
 	
-	console.log(revTripsData );
+	
 	
 }
+
+
+function loadStopNameExceptionsCSV(stopNameExceptionsEndPoint){
+	d3.csv(stopNameExceptionsEndPoint, function(data){
+		stopNameExceptions = data;
+		
+		//console.log(stopNameExceptions);
+		
+		loadData();	
+	});
+}
+
 
 function buildSchedules(){
 	var selectedRoute  = document.getElementById("select-route");
@@ -100,7 +114,6 @@ function buildSchedules(){
 		valueRoute = routeArray;
 	}
 	
-	console.log(valueRoute);
 	
 	
 	var selectedDirection = document.getElementById("select-direction");
@@ -109,7 +122,6 @@ function buildSchedules(){
 	var selectedServiceId = document.getElementById("select-service-id");
 	var valueServiceId = selectedServiceId.options[selectedServiceId.selectedIndex].value;
 	
-	console.log(valueServiceId);
 	
 	displayTable(valueRoute, valueServiceId, valueDirection, revTripsData);
 		
@@ -137,7 +149,47 @@ function cleanData(data){
 				
 				//correct stop data with stop name corrections:
 				if(stopExceptions.length > 0){
-					data[i].stop_name = stopExceptions[0].stop_name;			
+					//console.log(stopExceptions);
+					
+					var replaceStopName;
+					
+					
+					// first check for all route and directions
+					
+					var replaceAllRoutesDirections = stopExceptions.filter(function(d){
+						return (d.route_id === "" || d.route_id === null) && (d.direction_name === "" || d.direction_name === null);
+					});
+					
+					//then check for all routes and single direction
+					var replaceAllRoutesOneDirection = stopExceptions.filter(function(d){
+						return (d.route_id === "" || d.route_id === null) && (d.direction_name === data[i].direction_name);
+					});
+					
+					//check for single route, all directions
+					var replaceOneRouteAllDirections = stopExceptions.filter(function(d){
+						return (d.route_id === data[i].route_id) && (d.direction_name === "" || d.direction_name === null);
+					});
+					
+					//check for single route and one direction.
+					
+					var replaceOneRouteOneDirection = stopExceptions.filter(function(d){
+						return (d.route_id === data[i].route_id) && (d.direction_name === data[i].direction_name);
+					});
+					
+					
+					if(replaceOneRouteOneDirection.length > 0){
+						data[i].stop_name_display = replaceOneRouteOneDirection[0].stop_name;		
+					}
+					else if(replaceOneRouteOneDirection.length < 1 && replaceOneRouteAllDirections > 0){
+						data[i].stop_name_display = replaceOneRouteAllDirections[0].stop_name;	
+					}
+					else if(replaceOneRouteOneDirection.length < 1 && replaceOneRouteAllDirections.length < 1 && replaceAllRoutesOneDirection.length > 0){
+					 	data[i].stop_name_display = replaceAllRoutesOneDirection[0].stop_name;
+					}
+					else if(replaceOneRouteOneDirection.length < 1 && replaceOneRouteAllDirections.length < 1 && replaceAllRoutesOneDirection.length < 1 && replaceAllRoutesDirections.length > 0){
+						data[i].stop_name_display = replaceAllRoutesDirections[0].stop_name;
+					}
+							
 				}
 	
 				var adjustStopSeq = stopSeqExceptions.filter(function(d){return data[i].route_id === d.route_id && data[i].direction_name === d.direction_name;});
@@ -208,6 +260,7 @@ function generateStopsByRoute(data, route, directionName, serviceId){
 			var obj = {};
 		
 			obj["stop_name"] = routeData[i].stop_name;
+			obj["stop_name_display"] = routeData[i].stop_name_display
 			obj["stop_id"] = routeData[i].stop_id;
 			obj["direction_name"] = routeData[i].direction_name;
 			obj["max_stop_seq"] = routeData[i].stop_seq;
@@ -267,9 +320,12 @@ function displayTable(routes, service_id, directionName, data){
 		
 		var displayStop;
 		
-		if(d.stop_name === ""){
+		if(d.stop_name_display === "" && d.stop_name === ""){
 			displayStop = d.stop_id;
-		} else {
+		} else if(d.stop_name_display) {
+			displayStop = d.stop_name_display +' (' + d.stop_id + ')';			
+		}
+		else {
 			displayStop = d.stop_name +' (' + d.stop_id + ')';
 		}
 		tableHeader += '<th scope="col">' + displayStop + '</th>'; 
@@ -471,7 +527,6 @@ function getDirectionNamesByRoute(routes, data){
 		});
 	}
 	
-	console.log(routeData);
 	
 	//loop through finding unique direction names. 
 	for(i = 0; i < routeData.length; i++){
@@ -481,7 +536,7 @@ function getDirectionNamesByRoute(routes, data){
 			obj["route_id"] = routeData[i].direction_name;
 			obj["direction_name"] = routeData[i].direction_name;
 			directions.push(obj);
-			console.log(directions);	
+			
 		}
 		
 	}
