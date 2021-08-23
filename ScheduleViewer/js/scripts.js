@@ -12,16 +12,9 @@ configFiles = ['https://raw.githubusercontent.com/alexanderlew/alexanderlew.gith
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_saturday.csv',
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_sunday.csv'];
 
-var configIgnoreStops = [{stop_id: "195i5", stop_name: "I-5 & NE 195th"},
-{stop_id: "9stew", stop_name: "Stewart St & 9th Ave"},
-{stop_id: "hwll9", stop_name: "Howell St & 9th Ave"},
-{stop_id: "9209", stop_name: "BOTHELL P & R"},
-{stop_id: "9232", stop_name: "104 AVE NE & MAIN ST (BOTHELL)"},
-{stop_id: "3628", stop_name: "LAKE CITY WY NE & NE 145 ST"},
-{stop_id: "1280", stop_name: "OSWEGO PL NE & NE 65 ST"},
-{stop_id: "211", stop_name: "2 AV & SENECA ST"},
-{stop_id: "3919", stop_name: "MONTLAKE BLVD E & E SHELBY ST"}
-];
+var configIgnoreStopsEndPoint = 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/configIgnoreStops.csv'
+
+var configIgnoreStops;
 
 var stopNameExceptionsEndPoint = 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/stop_name_exceptions.csv';
 var stopNameExceptions;
@@ -90,14 +83,25 @@ function loadData() {
 }
 
 
-function loadStopNameExceptionsCSV(stopNameExceptionsEndPoint){
-	d3.csv(stopNameExceptionsEndPoint, function(data){
+function loadStopNameExceptionsCSV(endpoint){
+	d3.csv(endpoint, function(data){
 		stopNameExceptions = data;
+		
+		//console.log(stopNameExceptions);
+		
+		loadConfigIgnoreStops(configIgnoreStopsEndPoint);	
+	});
+}
+
+function loadConfigIgnoreStops(endpoint){
+	d3.csv(endpoint, function(data){
+		configIgnoreStops = data;
 		
 		//console.log(stopNameExceptions);
 		
 		loadData();	
 	});
+	
 }
 
 
@@ -132,7 +136,7 @@ function cleanData(data){
 	//clean up data by removing extraneous spaces; converting time formats, etc. 
 		for (var i = 0; i < data.length; i++){
 			//check if stop should be ignored.
-			if(configIgnoreStops.filter(function(d){return d.stop_id === data[i].stop_id && d.stop_name === data[i].stop_name}).length > 0){
+			if(configIgnoreStops.filter(function(d){return d.stop_id === data[i].stop_id && d.stop_name === data[i].stop_name && d.route_id === data[i].route_id}).length > 0){
 				continue;
 			}
 			else{
