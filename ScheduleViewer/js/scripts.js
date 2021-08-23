@@ -136,7 +136,7 @@ function cleanData(data){
 	//clean up data by removing extraneous spaces; converting time formats, etc. 
 		for (var i = 0; i < data.length; i++){
 			//check if stop should be ignored.
-			if(configIgnoreStops.filter(function(d){return d.stop_id === data[i].stop_id && d.stop_name === data[i].stop_name && d.route_id === data[i].route_id}).length > 0){
+			if(configIgnoreStops.filter(function(d){return d.stop_id === data[i].stop_id && d.route_id === data[i].route_id}).length > 0){
 				continue;
 			}
 			else{
