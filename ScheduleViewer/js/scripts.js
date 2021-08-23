@@ -33,7 +33,7 @@ var tripSortExceptions = [
 
 //cheap work around for better sort of stops. 
 var stopSeqExceptions = [
-{route_id: "535", direction_name: "South", stop_seq_adjust: 10}
+{route_id: "535", direction_name: "South", stop_seq_adjust: 10},
 ];
 
 
@@ -180,7 +180,7 @@ function cleanData(data){
 					if(replaceOneRouteOneDirection.length > 0){
 						data[i].stop_name_display = replaceOneRouteOneDirection[0].stop_name;		
 					}
-					else if(replaceOneRouteOneDirection.length < 1 && replaceOneRouteAllDirections > 0){
+					else if(replaceOneRouteOneDirection.length < 1 && replaceOneRouteAllDirections.length > 0){
 						data[i].stop_name_display = replaceOneRouteAllDirections[0].stop_name;	
 					}
 					else if(replaceOneRouteOneDirection.length < 1 && replaceOneRouteAllDirections.length < 1 && replaceAllRoutesOneDirection.length > 0){
