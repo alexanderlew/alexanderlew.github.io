@@ -135,13 +135,15 @@ function buildSchedules(){
 function cleanData(data){
 	//clean up data by removing extraneous spaces; converting time formats, etc. 
 		for (var i = 0; i < data.length; i++){
+			
+			data[i].route_id = data[i].route_id.replace(/\s+/g, ' ').trim();
 			//check if stop should be ignored.
 			if(configIgnoreStops.filter(function(d){return d.stop_id === data[i].stop_id && d.route_id === data[i].route_id}).length > 0){
 				continue;
 			}
 			else{
 				data[i].service_id = data[i].service_id.replace(/\s+/g, ' ').trim();
-				data[i].route_id = data[i].route_id.replace(/\s+/g, ' ').trim();
+				
 				data[i].sch_arr_time = data[i].sch_arr_time.replace(/\s+/g, ' ').trim();
 				data[i].stop_seq = +data[i].stop_seq.replace(/\s+/g, ' ').trim(); //converts to number
 				data[i].trip_id = data[i].trip_id.replace(/\s+/g, ' ').trim();
