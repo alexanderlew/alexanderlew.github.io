@@ -10,7 +10,10 @@ configFiles = ['https://raw.githubusercontent.com/alexanderlew/alexanderlew.gith
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/kcm_saturday.csv', 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/kcm_sunday.csv',
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_weekday.csv',
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_saturday.csv',
-'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_sunday.csv'];
+'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_sunday.csv',
+'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/pt_weekday.csv',
+'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/pt_saturday.csv',
+'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/pt_sunday.csv'];
 
 var configIgnoreStopsEndPoint = 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/configIgnoreStops.csv';
 
@@ -21,7 +24,9 @@ var stopNameExceptions;
 
 var tripSortExceptions = [
 {route_id: "532", direction_name: "South", stop_id: "blvtc"},
-{route_id: "535", direction_name: "South", stop_id: "blvtc"}
+{route_id: "535", direction_name: "South", stop_id: "blvtc"},
+{route_id: "577", direction_name: "North", stop_id: "FedW7"},
+{route_id: "578", direction_name: "North", stop_id: "FedW7"}
 ];
 
 //cheap work around for better sort of stops. 
@@ -52,6 +57,8 @@ function loadData() {
 	function loadCSV() {
 	
 			d3.csv(configFiles[loop], function(data){
+				
+				console.log("Cleaning up " + configFiles[loop]);
 				
 				//clean up data: organize by route, direction, and trip.
 				
