@@ -4,21 +4,18 @@ route_id,direction_name,stop_id,stop_name
 ,South,mltfs,Mountlake Terrace Freeway Station Bay 6
 ,North,mltfs,Mountlake Terrace Freeway Station Bay 7
 510,North,sefs,South Everett Freeway Station Bay 6
-511,,awypr,Ash Way P&R Bay 1
+,,awypr,Ash Way P&R Bay 1
 511,South,lynntc,Lynnwood TC Bay D3
 511,South,nortc,Northgate Station Bay 3
 511,North,nortc,Northgate Station Bay 2
 511,North,lynntc,Lynnwood TC Bay D2
-512,,awypr,Ash Way P&R Bay 1
 513,South,seaway,Seaway TC Bay 11
-513,,awypr,Ash Way P&R Bay 1
 513,South,lynntc,Lynnwood TC Bay D3
 513,South,nortc,Northgate Station Bay 3
 513,North,nortc,Northgate Station Bay 2
 513,North,lynntc,Lynnwood TC Bay D2
 512,South,evtst,Everett Station Bay C1
 512,South,sefs,South Everett Freeway Station Bay 3
-512,,awypr,Ash Way P&R Bay 1
 512,South,lynntc,Lynnwood TC Bay D3
 512,South,nortc,Northgate Station Bay 3
 512,North,nortc,Northgate Station Bay 2
