@@ -9,6 +9,7 @@ route_id,direction_name,stop_id,stop_name
 511,South,nortc,Northgate Station Bay 3
 511,North,nortc,Northgate Station Bay 2
 511,North,lynntc,Lynnwood TC Bay D2
+512,,awypr,Ash Way P&R Bay 1
 513,South,seaway,Seaway TC Bay 11
 513,,awypr,Ash Way P&R Bay 1
 513,South,lynntc,Lynnwood TC Bay D3
