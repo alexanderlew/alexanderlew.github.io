@@ -1,34 +1,42 @@
 route_id,direction_name,stop_id,stop_name
+,North,evtst,Everett Station*
 510,South,evtst,Everett Station Bay C1
 510,South,sefs,South Everett Freeway Station Bay 3
-,South,mltfs,Mountlake Terrace Freeway Station Bay 6
-,North,mltfs,Mountlake Terrace Freeway Station Bay 7
-510,North,sefs,South Everett Freeway Station Bay 6
-,,awypr,Ash Way P&R Bay 1
+,South,mltfs,Mountlake Terrace Freeway Station Bay 6*
+,North,mltfs,Mountlake Terrace Freeway Station Bay 7*
+510,North,sefs,South Everett Freeway Station Bay 6*
+,South,awypr,Ash Way P&R Bay 1
+,North,awypr,Ash Way P&R Bay 1*
 511,South,lynntc,Lynnwood TC Bay D3
 511,South,nortc,Northgate Station Bay 3
 511,North,nortc,Northgate Station Bay 2
-511,North,lynntc,Lynnwood TC Bay D2
+511,North,lynntc,Lynnwood TC Bay D2*
 513,South,seaway,Seaway TC Bay 11
 513,South,lynntc,Lynnwood TC Bay D3
 513,South,nortc,Northgate Station Bay 3
 513,North,nortc,Northgate Station Bay 2
-513,North,lynntc,Lynnwood TC Bay D2
+513,North,lynntc,Lynnwood TC Bay D2*
+513,North,emtpr,Eastmount Park & Ride*
+513,North,seaway,Seaway TC*
 512,South,evtst,Everett Station Bay C1
 512,South,sefs,South Everett Freeway Station Bay 3
 512,South,lynntc,Lynnwood TC Bay D3
 512,South,nortc,Northgate Station Bay 3
 512,North,nortc,Northgate Station Bay 2
-512,North,lynntc,Lynnwood TC Bay D3
-512,North,sefs,South Everett Freeway Station Bay 6
+512,North,lynntc,Lynnwood TC Bay D3*
+512,North,sefs,South Everett Freeway Station Bay 6*
 532,South,evtst,Everett Station Bay C3
 532,South,sefs,South Everett Freeway Station Bay 2
-,South,cpkpr,Canyon P&R Bay 4
-,South,blvtc,Bellevue TC Bay 8
+,South,cpkpr,Canyon P&R Bay 4*
+,,405tl,Totem Lake Freeway Station*
+,South,blvtc,Bellevue TC Bay 8*
+,South,10102,NE 10th St & 102nd Ave NE*
 ,North,blvtc,Bellevue TC Bay 4
-,North,cpkpr,Canyon P&R Bay 3
-532,North,sefs,South Everett Freeway Station Bay 6
-535,,lynntc,Lynnwood TC Bay D1
+,North,cpkpr,Canyon P&R Bay 3*
+532,North,sefs,South Everett Freeway Station Bay 6*
+,,ald184,Alderwood Mall Pkwy & 184th St*
+535,South,lynntc,Lynnwood TC Bay D1
+535,North,lynntc,Lynnwood TC Bay D1*
 ,,8530,Woodinvile P&R
 ,South,9419,UW Bothell/Cascadia CC
 ,,9219,Kenmore P&R
@@ -92,3 +100,4 @@ route_id,direction_name,stop_id,stop_name
 ,West,7663,Issaquah TC Bay 3
 ,West,7311,Bellevue TC Bay 5
 ,East,7666,Issaquah TC Bay 6*
+,East,7800,Bellevue TC Bay 8
