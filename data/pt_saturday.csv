@@ -1,4 +1,4 @@
-service_id;route_id;trip_id;block_id;sch_arr_time;stop_name;stop_id;stop_seq;direction_name
+service_id,route_id,trip_id,block_id,sch_arr_time,stop_name,stop_id,stop_seq,direction_name
 Saturday ,  574,    6409,      11, 7:38   ,Lakewood Mall TC Zone L,lmtcL,          1,North
 Saturday ,  574,    6409,      11, 7:48   ,SR512 P&R Zone F,sr512F,          2,North
 Saturday ,  574,    6409,      11, 8:00   ,Tacoma Dome Station Zone A,tdsA,          3,North
