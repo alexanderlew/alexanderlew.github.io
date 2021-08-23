@@ -12,7 +12,7 @@ configFiles = ['https://raw.githubusercontent.com/alexanderlew/alexanderlew.gith
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_saturday.csv',
 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/ct_sunday.csv'];
 
-var configIgnoreStopsEndPoint = 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/configIgnoreStops.csv'
+var configIgnoreStopsEndPoint = 'https://raw.githubusercontent.com/alexanderlew/alexanderlew.github.io/master/data/configIgnoreStops.csv';
 
 var configIgnoreStops;
 
