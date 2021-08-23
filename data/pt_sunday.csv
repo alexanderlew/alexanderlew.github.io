@@ -1,4 +1,4 @@
-service_id;route_id;trip_id;block_id;sch_arr_time;stop_name;stop_id;stop_seq;direction_name
+service_id,route_id,trip_id,block_id,sch_arr_time,stop_name,stop_id,stop_seq,direction_name
 Sunday   ,,    8519,      12,11:14   ,SeaTac Airport Terminal Bay,seatac,          1,
 Sunday   ,,    8519,      12,12:04   ,Base,g,          2,
 Sunday   ,,    8529,      10, 8:35   ,Lakewood Mall TC Zone L,lmtcL,          1,
