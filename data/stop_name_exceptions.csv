@@ -4,6 +4,8 @@ route_id,direction_name,stop_id,stop_name
 510,South,sefs,South Everett Freeway Station Bay 3
 ,South,mltfs,Mountlake Terrace Freeway Station Bay 6*
 ,North,mltfs,Mountlake Terrace Freeway Station Bay 7*
+,South,5pine,5th Ave & Pine St*
+,South,5jack,5th Ave S & S Jackson St*
 510,North,sefs,South Everett Freeway Station Bay 6*
 ,South,awypr,Ash Way P&R Bay 1
 ,North,awypr,Ash Way P&R Bay 1*
@@ -101,3 +103,4 @@ route_id,direction_name,stop_id,stop_name
 ,West,7311,Bellevue TC Bay 5
 ,East,7666,Issaquah TC Bay 6*
 ,East,7800,Bellevue TC Bay 8
+,West,617,Pine & 6th*
