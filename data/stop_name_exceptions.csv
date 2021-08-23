@@ -26,8 +26,8 @@ route_id,direction_name,stop_id,stop_name
 532,South,evtst,Everett Station Bay C3
 532,South,sefs,South Everett Freeway Station Bay 2
 ,South,cpkpr,Canyon P&R Bay 4
-532,South,blvtc,Bellevue TC Bay 8
-532,North,blvtc,Bellevue TC Bay 4
+,South,blvtc,Bellevue TC Bay 8
+,North,blvtc,Bellevue TC Bay 4
 ,North,cpkpr,Canyon P&R Bay 3
 532,North,sefs,South Everett Freeway Station Bay 6
 535,,lynntc,Lynnwood TC Bay D1
