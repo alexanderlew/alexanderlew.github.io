@@ -66,21 +66,21 @@ route_id,direction_name,stop_id,stop_name
 ,East,615,Union St at 5th Ave
 ,East,304,2nd Ave at Yesler*
 ,East,7526,Mercer Island P&R*
-,East,7335,South Bellevue P&R Bay 3*
+,,7335,South Bellevue P&R Bay 3*
 ,East,7277,Bellevue TC Bay 12*
 ,East,7361,110th Av NE at NE 10th St*
 ,West,7361,110th Av NE at NE 10th St
 ,West,7316,Bellevue TC Bay 9
-,West,3096,South Bellevue P&R Bay 1
+,,3096,South Bellevue P&R Bay 1
 ,West,7517,Mercer Island P&R*
-,West,401,4 Av S at S Jackson St*
-,West,617,Pike St at 6th Ave*
-,West,8955,Lenora St at 4th Ave
-,West,4736,Rainier Ave S at S Charles St*
-,West,7169,Eastgate Fwy Stn Bay 4*
-,West,7666,Issaquah TC Bay 6*
-,West,8531,E Sunset Wy & Ranier Blvd*
-,West,7653,Issaquah Highlands P&R Bay 3*
+,East,401,4 Av S at S Jackson St*
+,East,617,Pike St at 6th Ave*
+,East,8955,Lenora St at 4th Ave
+,East,4736,Rainier Ave S at S Charles St*
+,East,7169,Eastgate Fwy Stn Bay 4*
+,East,7666,Issaquah TC Bay 6*
+,East,8531,E Sunset Wy & Ranier Blvd*
+,East,7653,Issaquah Highlands P&R Bay 3*
 ,West,7654,Issaquah Highlands P&R Bay 4
 ,West,7610,E Sunset Wy & Ranier Blvd
 ,West,7662,Issaquah TC Bay 2
@@ -91,3 +91,4 @@ route_id,direction_name,stop_id,stop_name
 ,West,521,Blanchard St at 5th Ave
 ,West,7663,Issaquah TC Bay 3
 ,West,7311,Bellevue TC Bay 5
+,East,7666,Issaquah TC Bay 6*
