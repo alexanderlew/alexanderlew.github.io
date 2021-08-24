@@ -179,7 +179,9 @@ route_id,direction_name,stop_id,stop_name
 ,North,10cmD,10th & Commerce Zone D
 ,North,tdsB,Tacoma Dome Station Zone B
 ,North,sbus,SODO Busway & Spokane St*
-,North,4jack,4th & Jackson*
+590,North,4jack,4th & Jackson*
+594,North,4jack,4th & Jackson*
+595,North,4jack,4th & Jackson*
 ,South,dupnt,Dupont Station*
 ,South,gigpr2,Kimball Drive P&R
 ,South,narpr,Narrows P&R
