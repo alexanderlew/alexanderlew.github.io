@@ -172,7 +172,7 @@ route_id,direction_name,stop_id,stop_name
 ,South,2ext,2nd & Yesler*
 ,South,sbus,SODO Busway & Spokane St*
 ,South,10cmG,10th & Commerce Zone G*
-,South,sr512I,SR 512 P&R
+,South,sr512I,SR 512 P&R*
 ,South,lkts4,Lakewood Station*
 ,North,lkts,Lakewood Station
 ,North,sr512J,SR 512 P&R Zone J
