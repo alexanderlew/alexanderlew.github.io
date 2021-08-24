@@ -139,6 +139,7 @@ route_id,direction_name,stop_id,stop_name
 574,South,tdsH,Tacoma Dome Station Zone H*
 574,South,sr512H,SR 512 P&R Zone H*
 574,South,lmtcL,Lakewood Mall TC Zone L
+,South,fvthom,Fairview & Thomas
 ,South,2pike,2nd & Pike*
 ,South,2jack,2nd Ave Ext & S Jackson St*
 ,South,Fedwy,Federal Way TC Bay 2
