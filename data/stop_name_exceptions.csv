@@ -104,3 +104,89 @@ route_id,direction_name,stop_id,stop_name
 ,East,7666,Issaquah TC Bay 6*
 ,East,7800,Bellevue TC Bay 8
 ,West,617,Pine & 6th*
+,,25Bart,Westwood Village Bay 4
+,,BurTC6,Burien TC Bay 6
+560,,seatac,SeaTac Airport
+,,Rent1,Renton TC Bay 1
+,,40530E,Kennydale Freeway Station*
+,,NphP&R,Newport Hills Freeway Station*
+,,Belv7,Bellevue TC Bay 7*
+,East,105Ne,105th Ave NE at NE 2nd St*
+,,Belv6,Bellevue TC Bay 6
+,,40530,Kennydale Freeway Station*
+,,Rent4,Renton TC Bay 4
+,,BurTC,Burien TC Bay 4*
+,,26Bart,Westwood Village Bay 2*
+,,ovlktc,Redmond Technology Bay 4
+,,Kent9,Kent Station Bay 9*
+,South,aubpr,Auburn P&R*
+,South,Abrn4,Auburn Station Bay 4*
+,North,Abrn2,Auburn Station Bay 4
+,North,aubpr,Auburn P&R
+,North,Kent3,Kent Station Bay 3
+,,Belv11,Bellevue TC Bay 11*
+,North,SR520,SR 520 at NE 40th*
+574,North,Fdwprd,Federal Way TC Bay 8
+,,starlk,Star Lake Fwy Station*
+,,kendem,Kent/Des Moines Fwy Station*
+,North,StLink,SeaTac/Airport Link Station*
+574,North,seatac,SeaTac Airport*
+574,South,StLink,SeaTac/Airport Link Station
+,South,seatac,SeaTac Airport
+,,kende2,Kent/Des Moines Fwy Station*
+,,starl2,Kent/Des Moines Fwy Station*
+,,FedW5,Federal Way TC Bay 5
+574,South,tdsH,Tacoma Dome Station Zone H*
+574,South,sr512H,SR 512 P&R Zone H*
+574,South,lmtcL,Lakewood Mall TC Zone L
+,South,2pike,2nd & Pike*
+,South,2jack,2nd Ave Ext & S Jackson St*
+,South,Fedwy,Federal Way TC Bay 2
+,South,smsta2,Sumner Station Bay 2*
+,South,puyst3,Puyallup Station Bay 3*
+,North,puyst3,Puyallup Station Bay 3
+,North,smsta2,Sumner Station Bay 1
+,North,Abrn3,Auburn Station Bay 3
+,North,FedW7,Federal Way TC Bay 7
+,North,4pine,4th & Pine*
+,North,eastst,Eastlake & Stewart*
+,East,lkts2,Lakewood Station Bay 2
+,East,sr512H,SR 512 P&R Zone H
+,East,shpr1,South Hill P&R Bay 1
+,,RedLot,Red Lot*
+580,East,puyst4,Puyallup Station*
+580,West,puyst4,Puyallup Station
+580,West,shpr3,South Hill P&R*
+580,West,sr512H,SR 512 P&R*
+580,West,lkts2,Lakewood Station*
+586,South,45ne,NE 45th & Univ Way
+586,South,UWS,Univ of Washington Station Bay 1
+586,South,FedW5,Federal Way TC Bay 5*
+,South,tdsE,Tacoma Dome Station Zone E*
+586,North,tdsE,Tacoma Dome Station Zone E
+586,North,Fdwprd,Federal Way TC Bay 8
+586,North,45ne,NE 45th & Univ Way*
+586,North,UWS,Univ of Washington Station Bay 1*
+,South,stwyal,Stewart & Yale
+,South,2Sen,2nd & Seneca St
+,South,2ext,2nd & Yesler*
+,South,sbus,SODO Busway & Spokane St*
+,South,10cmG,10th & Commerce Zone G*
+,South,sr512I,SR 512 P&R
+,South,lkts4,Lakewood Station*
+,North,lkts,Lakewood Station
+,North,sr512J,SR 512 P&R Zone J
+,North,10cmD,10th & Commerce Zone D
+,North,tdsB,Tacoma Dome Station Zone B
+,North,sbus,SODO Busway & Spokane St*
+,North,4jack,4th & Jackson*
+,South,dupnt,Dupont Station*
+,South,gigpr2,Kimball Drive P&R
+,South,narpr,Narrows P&R
+595,South,tdsH,Tacoma Dome Station Zone H*
+,South,tccM,TCC TC Zone M*
+,South,narpr,Narrows P&R*
+,South,gigpr2,Kimball Drive P&R*
+,South,prdpr,Purdy P&R*
+596,,smsta3,Sumner Station
+,,bnlpr5,Bonney Lake P&R
