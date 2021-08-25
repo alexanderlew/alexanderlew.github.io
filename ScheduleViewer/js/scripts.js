@@ -336,10 +336,10 @@ function displayTable(routes, service_id, directionName, data){
 		if(d.stop_name_display === "" && d.stop_name === ""){
 			displayStop = d.stop_id;
 		} else if(d.stop_name_display) {
-			displayStop = d.stop_name_display +' (' + d.stop_id + ')';			
+			displayStop = d.stop_name_display;// +' (' + d.stop_id + ')';			
 		}
 		else {
-			displayStop = d.stop_name +' (' + d.stop_id + ')';
+			displayStop = d.stop_name; // +' (' + d.stop_id + ')';
 		}
 		tableHeader += '<th scope="col">' + displayStop + '</th>'; 
 	});
