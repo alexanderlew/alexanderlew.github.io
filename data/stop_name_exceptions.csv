@@ -53,7 +53,7 @@ route_id,direction_name,stop_id,stop_name
 ,West,7072,Bear Creek P&R
 ,West,7382,Redmond TC Bay 6
 ,West,7008,SR 520 & NE 51st*
-,West,8546,SR 520 & NE 40th*
+,West,7546,SR 520 & NE 40th*
 ,West,7247,Evergreen Pt Fwy Station*
 ,West,516,5th Ave & Pine St*
 ,West,8972,5th Ave & S Weller St*
@@ -76,12 +76,12 @@ route_id,direction_name,stop_id,stop_name
 ,East,615,Union St at 5th Ave
 ,East,304,2nd Ave at Yesler*
 ,East,7526,Mercer Island P&R*
-,,7335,South Bellevue P&R Bay 3*
+,,7335,South Bellevue Stn Bay 3*
 ,East,7277,Bellevue TC Bay 12*
 ,East,7361,110th Av NE at NE 10th St*
 ,West,7361,110th Av NE at NE 10th St
 ,West,7316,Bellevue TC Bay 9
-,,3096,South Bellevue P&R Bay 1
+,,3096,South Bellevue Stn Bay 1
 ,West,7517,Mercer Island P&R*
 ,East,401,4 Av S at S Jackson St*
 ,East,617,Pike St at 6th Ave*
@@ -98,30 +98,32 @@ route_id,direction_name,stop_id,stop_name
 ,West,4735,Rainier Ave S at S Charles St*
 ,West,401,4th Ave S at S Jackson St*
 ,West,8962,4th Ave at Pike St*
-,West,521,Blanchard St at 5th Ave*
+,West,521,Blanchard St at 5th Ave
 ,West,7663,Issaquah TC Bay 3
 ,West,7311,Bellevue TC Bay 5
 ,East,7666,Issaquah TC Bay 6*
 ,East,7800,Bellevue TC Bay 8
 ,West,617,Pine & 6th*
+554,East,211, 2nd Ave & Seneca St
 ,,25Bart,Westwood Village Bay 4
 ,,BurTC6,Burien TC Bay 6
 560,,seatac,SeaTac Airport
 ,,Rent1,Renton TC Bay 1
-,,40530E,Kennydale Freeway Station*
-,,NphP&R,Newport Hills Freeway Station*
+,,40530E,NE 30th/Kennydale Freeway Station*
+,,NphP&R,Newport Hills P&R*
 ,,Belv7,Bellevue TC Bay 7*
-,East,105Ne,105th Ave NE at NE 2nd St*
+,East,105Ne,105th Ave NE & NE 2nd St*
+,West,105Ne,105th Ave NE & NE 2nd St
 ,,Belv6,Bellevue TC Bay 6
-,,40530,Kennydale Freeway Station*
+,,40530,NE 30th/Kennydale Freeway Station*
 ,,Rent4,Renton TC Bay 4
 ,,BurTC,Burien TC Bay 4*
 ,,26Bart,Westwood Village Bay 2*
 ,,ovlktc,Redmond Technology Bay 4
 ,,Kent9,Kent Station Bay 9*
 ,South,aubpr,Auburn P&R*
-,South,Abrn4,Auburn Station Bay 4*
-,North,Abrn2,Auburn Station Bay 4
+,South,Abrn4,Auburn Station*
+566,North,Abrn2,Auburn Station Bay 1
 ,North,aubpr,Auburn P&R
 ,North,Kent3,Kent Station Bay 3
 ,,Belv11,Bellevue TC Bay 11*
@@ -138,7 +140,8 @@ route_id,direction_name,stop_id,stop_name
 ,,FedW5,Federal Way TC Bay 5
 574,South,tdsH,Tacoma Dome Station Zone H*
 574,South,sr512H,SR 512 P&R Zone H*
-574,South,lmtcL,Lakewood Mall TC Zone L
+574,South,lmtcL,Lakewood TC Zone L*
+574,North,lmtcL,Lakewood TC Zone L
 ,South,fvthom,Fairview & Thomas
 ,South,2pike,2nd & Pike*
 ,South,2jack,2nd Ave Ext & S Jackson St*
@@ -173,7 +176,7 @@ route_id,direction_name,stop_id,stop_name
 ,South,2ext,2nd & Yesler*
 ,South,sbus,SODO Busway & Spokane St*
 ,South,10cmG,10th & Commerce Zone G*
-,South,sr512I,SR 512 P&R*
+,South,sr512I,SR 512 P&R Zone I*
 ,South,lkts4,Lakewood Station*
 ,North,lkts,Lakewood Station
 ,North,sr512J,SR 512 P&R Zone J
@@ -184,7 +187,7 @@ route_id,direction_name,stop_id,stop_name
 594,North,4jack,4th & Jackson*
 595,North,4jack,4th & Jackson*
 ,South,dupnt,Dupont Station*
-,South,gigpr2,Kimball Drive P&R
+,North,gigpr2,Kimball Drive P&R
 ,South,narpr,Narrows P&R
 595,South,tdsH,Tacoma Dome Station Zone H*
 ,South,tccM,TCC TC Zone M*
