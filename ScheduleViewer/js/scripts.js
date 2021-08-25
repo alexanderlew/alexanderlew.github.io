@@ -600,6 +600,10 @@ function download_table_as_csv(table_id, separator) {
 	var textRoute = selectedRoute.options[selectedRoute.selectedIndex].text;
 	 
 	
+	
+	var selectedDirection = document.getElementById("select-direction");
+	var valueDirection = selectedDirection.options[selectedDirection.selectedIndex].value;
+	
 	var selectedServiceId = document.getElementById("select-service-id");
 	var valueServiceId = selectedServiceId.options[selectedServiceId.selectedIndex].value;
 	
@@ -621,7 +625,7 @@ function download_table_as_csv(table_id, separator) {
     }
     var csv_string = csv.join('\n');
     // Download it
-    var filename = textRoute + '_' + valueServiceId + '_' + table_id + '_' + new Date().toLocaleDateString() + '.csv';
+    var filename = textRoute + '_' + valueDirection + '_'  + valueServiceId + '_' + table_id + '_' + new Date().toLocaleDateString() + '.csv';
     var link = document.createElement('a');
     link.style.display = 'none';
     link.setAttribute('target', '_blank');
