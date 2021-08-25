@@ -375,7 +375,7 @@ function displayTable(routes, service_id, directionName, data){
 				tableBody += '<td>' + stopTime + '</td>'; 
 			}
 			else{ 
-				tableBody +=	'<td> -:- </td>';
+				tableBody +=	'<td>:</td>';
 			}
 				
 				
