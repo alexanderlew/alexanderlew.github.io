@@ -6,6 +6,7 @@ route_id,direction_name,stop_id,stop_name
 ,North,mltfs,Mountlake Terrace Freeway Station Bay 7*
 ,South,5pine,5th Ave & Pine St*
 ,South,5jack,5th Ave S & S Jackson St*
+510,North,4jack,4th Ave & S Jackson St
 510,North,sefs,South Everett Freeway Station Bay 6*
 ,South,awypr,Ash Way P&R Bay 1
 ,North,awypr,Ash Way P&R Bay 1*
