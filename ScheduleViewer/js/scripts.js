@@ -366,7 +366,7 @@ function displayTable(routes, service_id, directionName, data){
 	
 	
 	for (var t = 0; t < allTrips.length; t++){
-		tableBody += '<td>' + allTrips[t].route_id + '</td>';
+		tableBody += '<td>' + allTrips[t].route_id.replace("S5","5") + '</td>';
 		
 		//get each stop and find stop time by looping through stop listing each time
 		for(var i = 0; i < stopsByRoute.length; i++){
