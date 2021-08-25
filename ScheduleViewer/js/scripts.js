@@ -28,7 +28,7 @@ var tripSortExceptions = [
 {route_id: "577", direction_name: "North", stop_id: "FedW7"},
 {route_id: "578", direction_name: "North", stop_id: "FedW7"},
 {route_id: "511", direction_name: "South", stop_id: "nortc"},
-{route_id: "511", direction_name: "South", stop_id: "nortc"}
+{route_id: "513", direction_name: "South", stop_id: "nortc"}
 ];
 
 //cheap work around for better sort of stops. 
