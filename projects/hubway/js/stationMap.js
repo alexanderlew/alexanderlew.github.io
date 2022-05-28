@@ -1,8 +1,9 @@
 
 var allData = [];
+var stationData = [];
 
 // Start application by loading the data
-loadData();
+loadStations();
 
 var color = d3.scale.ordinal()
     .range(["#4a6887", "#E64347"]);
@@ -12,34 +13,61 @@ var radius = d3.scale.sqrt()
     .range([0, 26]);
 
 
+function loadStations(){
+	var url = 'https://gbfs.bluebikes.com/gbfs/en/station_information.json';
+	
+		$.getJSON(url).done(function(jsonData){
+
+			stationData = jsonData.data.stations;
+			
+		
+			stationData.forEach(function(d){
+				d.lat = +d.lat;
+				d.lon = +d.lon;
+			});
+
+		
+			loadData();
+			});
+
+}
+
 function loadData() {
 
 // Hubway json station feed
-	var url = 'https://secure.thehubway.com/data/stations.json';
+	var url = 'https://gbfs.bluebikes.com/gbfs/en/station_status.json';
 
 	$.getJSON(url).done(function(jsonData){
 	 
-	allData = jsonData.stations;
-	console.log(allData);
+	allData = jsonData.data.stations;
+
 	
 	//Convert to numbers
 	allData.forEach(function(data){
-		data.la = +data.la;
-		data.lo = +data.lo;
-		data.ba = +data.ba;
-		data.da = +data.da;
-		data.lu = +data.lu;
+		//get station id and match lat lon;
+		var stationInfo = stationData.filter(function(d){
+			return d.station_id === data.station_id;
+			
+		});
+		
+		
+		data.s = stationInfo[0].name;
+		data.la = stationInfo[0].lat;
+		data.lo = stationInfo[0].lon;
+		data.ba = +data.num_bikes_available;
+		data.da = +data.num_docks_available;
+		data.lu = +data.last_reported;
 		data.total = data.ba + data.da;
 		data.latLng = [+data.la, +data.lo];
 	});
 	
 	//Filter data -- only opened stations
 	openStations = allData.filter(function(d){
-	  return d.st === 1;  
+	  return d.is_installed === 1;  
 	});
 	
     closedStations = allData.filter(function(d){
-       return d.st !== 1; 
+       return d.is_installed !== 1; 
     });
     
     // Load time zone for time formattings:
@@ -81,7 +109,7 @@ function initVis() {
 	.attr()
 	.offset([-10, 0])
 	.html(function(d) {
-        var last_update = moment(d.data.update).tz('America/New_York').format('MM-DD-YYYY HH:mm z');
+        var last_update = moment((d.data.update)*1000).tz('America/New_York').format('MM-DD-YYYY HH:mm z');
 	    
 	    if(d.data.item==="Bikes"){
 
